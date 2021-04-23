@@ -39,6 +39,7 @@ Windows10でのみ確認済み
 好きな場所に解凍して、置いてお使いください
 
 直接このページのCodeからダウンロードするか、githubの右側にあるReleaseからダウンロードできます
+https://github.com/hiryuushiva/SW_MonsterDataTool/releases/tag/1.10b
 
 
 **・アンインストール**
