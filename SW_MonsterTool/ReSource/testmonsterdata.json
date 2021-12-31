@@ -1,0 +1,104 @@
+[
+  {
+    "Name": "モンスターネーム",
+    "Category": "機械",
+    "Reference": {
+      "Book": "ルルブ1",
+      "Page": "256"
+    },
+    "Inteligence": "適当",
+    "Perception": "暗視",
+    "Reaction": "敵対",
+    "Kegare": "1",
+    "Recognition": "5",
+    "WeakPointValue": "4",
+    "PreemptiveValue": "3",
+    "WeekPoint": {
+      "Element": "水",
+      "Damage": "6"
+    },
+    "LifeResistance": "4",
+    "SpiritResistance": "3",
+    "MoveSpeed": [
+      {
+        "Move": "二足",
+        "Speed": "30"
+      },
+      {
+        "Move": "-",
+        "Speed": "-"
+      }
+    ],
+    "Language": [
+      "蛮族語",
+      "交易共通語"
+    ],
+    "Habitat": [
+      "砂漠",
+      "さまざま"
+    ],
+    "CorePart": "なし",
+    "Statuses": [
+      {
+        "Part": "剣",
+        "HitPower": "5",
+        "Damage": "5",
+        "Dodge": "5",
+        "Protection": "5",
+        "HP": "6",
+        "MP": "7",
+        "SwordPiece": "0"
+      },
+      {
+        "Part": "剣2",
+        "HitPower": "5",
+        "Damage": "5",
+        "Dodge": "5",
+        "Protection": "5",
+        "HP": "6",
+        "MP": "7",
+        "SwordPiece": "0"
+      }
+    ],
+    "Specal": [
+      {
+        "Name": "",
+        "Declaration1": "補助",
+        "Declaration2": "-",
+        "Declaration3": "-",
+        "Effect": "ダメージ+1"
+      },
+      {
+        "Name": "",
+        "Declaration1": "補助",
+        "Declaration2": "-",
+        "Declaration3": "-",
+        "Effect": "ダメージ+1"
+      }
+    ],
+    "Booty": [
+      {
+        "Dice": "１～２",
+        "Name": "ゴミ",
+        "Num": "2",
+        "Gamel": "56G",
+        "Material": "白"
+      },
+      {
+        "Dice": "１～２",
+        "Name": "2ゴミ",
+        "Num": "2",
+        "Gamel": "56G",
+        "Material": "白"
+      }
+    ],
+    "Description": "テスト解説",
+    "Level": "1",
+    "TotalSwordPiece": "0",
+    "Texture": "None",
+    "ChatPalette": {
+      "DicePalette": ["テストパレット"],
+      "FixedPalette": ["テストパレット"]
+    }
+  }
+]
