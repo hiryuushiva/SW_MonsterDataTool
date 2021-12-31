@@ -49,6 +49,7 @@ SW_MonsterTool.exeをダブルクリックで起動できます
 
 
 **・著作権について**
+
 Copyright (C) 2021 hiryuushiva
 
 一連のソースコードを、個人的な利用以外に使用することを禁止します
