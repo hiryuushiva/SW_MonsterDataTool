@@ -56,7 +56,8 @@
             // 
             // MonsterCSVSpreadSheetTextBox1
             // 
-            this.MonsterCSVSpreadSheetTextBox1.Location = new System.Drawing.Point(13, 29);
+            this.MonsterCSVSpreadSheetTextBox1.Enabled = false;
+            this.MonsterCSVSpreadSheetTextBox1.Location = new System.Drawing.Point(13, 28);
             this.MonsterCSVSpreadSheetTextBox1.Name = "MonsterCSVSpreadSheetTextBox1";
             this.MonsterCSVSpreadSheetTextBox1.Size = new System.Drawing.Size(408, 19);
             this.MonsterCSVSpreadSheetTextBox1.TabIndex = 1;
@@ -93,6 +94,7 @@
             // 
             // ConfigCSVSpreadSheetTextBox1
             // 
+            this.ConfigCSVSpreadSheetTextBox1.Enabled = false;
             this.ConfigCSVSpreadSheetTextBox1.Location = new System.Drawing.Point(12, 309);
             this.ConfigCSVSpreadSheetTextBox1.Name = "ConfigCSVSpreadSheetTextBox1";
             this.ConfigCSVSpreadSheetTextBox1.Size = new System.Drawing.Size(408, 19);

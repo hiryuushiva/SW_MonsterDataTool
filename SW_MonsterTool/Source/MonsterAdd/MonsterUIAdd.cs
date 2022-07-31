@@ -34,6 +34,16 @@ namespace SW_MonsterTool.Source.MUIAdd
         private ColumnHeaderEx m_View_HPHeader;
         private ColumnHeaderEx m_View_MPHeader;
 
+        //画像用ステータス
+        private ColumnHeaderEx m_Image_NoHeader;
+        private ColumnHeaderEx m_Image_PartHeader;
+        private ColumnHeaderEx m_Image_HitHeader;
+        private ColumnHeaderEx m_Image_DamageHeader;
+        private ColumnHeaderEx m_Image_DodgeHeader;
+        private ColumnHeaderEx m_Image_ProtectionHeader;
+        private ColumnHeaderEx m_Image_HPHeader;
+        private ColumnHeaderEx m_Image_MPHeader;
+
         //モンスターデータ細かい奴
         private ComboBox m_IntelligenceCombo;
         private ComboBox m_PerceptionCombo;
@@ -172,6 +182,47 @@ namespace SW_MonsterTool.Source.MUIAdd
             this.m_View_MPHeader.Text = "MP";
             this.m_View_MPHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             m_View_MPHeader.Width = 50;
+
+            //画像ステータス周り
+            this.m_Image_NoHeader = ((new ColumnHeaderEx()));
+            this.m_Image_PartHeader = ((new ColumnHeaderEx()));
+            this.m_Image_HitHeader = ((new ColumnHeaderEx()));
+            this.m_Image_DamageHeader = ((new ColumnHeaderEx()));
+            this.m_Image_DodgeHeader = ((new ColumnHeaderEx()));
+            this.m_Image_ProtectionHeader = ((new ColumnHeaderEx()));
+            this.m_Image_HPHeader = ((new ColumnHeaderEx()));
+            this.m_Image_MPHeader = ((new ColumnHeaderEx()));
+
+            this.m_Image_NoHeader.Text = "No";
+            this.m_Image_NoHeader.Width = 0;
+
+            this.m_Image_PartHeader.Text = "攻撃方法(部位)";
+            this.m_Image_PartHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.m_Image_PartHeader.Width = 160;
+
+            this.m_Image_HitHeader.Text = "命中力";
+            this.m_Image_HitHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.m_Image_HitHeader.Width = 65;
+
+            this.m_Image_DamageHeader.Text = "打撃点";
+            this.m_Image_DamageHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            m_Image_DamageHeader.Width = 65;
+
+            this.m_Image_DodgeHeader.Text = "回避力";
+            this.m_Image_DodgeHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            m_Image_DodgeHeader.Width = 65;
+
+            this.m_Image_ProtectionHeader.Text = "防護点";
+            this.m_Image_ProtectionHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            m_Image_ProtectionHeader.Width = 65;
+
+            this.m_Image_HPHeader.Text = "HP";
+            this.m_Image_HPHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            m_Image_HPHeader.Width = 55;
+
+            this.m_Image_MPHeader.Text = "MP";
+            this.m_Image_MPHeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            m_Image_MPHeader.Width = 55;
 
         }
 
@@ -332,6 +383,14 @@ namespace SW_MonsterTool.Source.MUIAdd
         {
             ColumnHeaderEx[] l_ColHeaderRegValue =
                 {m_View_NoHeader,m_View_PartHeader,m_View_HitHeader,m_View_DamageHeader,m_View_DodgeHeader,m_View_ProtectionHeader,m_View_HPHeader,m_View_MPHeader };
+            list.Columns.AddRange(l_ColHeaderRegValue);
+        }
+
+        //画像用ステータスUI追加
+        public void AddImageCloumnHeader(ListViewEx list)
+        {
+            ColumnHeaderEx[] l_ColHeaderRegValue =
+                {m_Image_NoHeader,m_Image_PartHeader,m_Image_HitHeader,m_Image_DamageHeader,m_Image_DodgeHeader,m_Image_ProtectionHeader,m_Image_HPHeader,m_Image_MPHeader };
             list.Columns.AddRange(l_ColHeaderRegValue);
         }
 

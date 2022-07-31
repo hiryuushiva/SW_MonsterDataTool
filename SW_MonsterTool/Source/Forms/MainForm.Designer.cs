@@ -111,7 +111,6 @@
             this.View_Special_AbilityPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Special_AbilityBackPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.View_Special_AbilityLabel1 = new System.Windows.Forms.Label();
-            this.View_DescriptionTextBox1 = new System.Windows.Forms.RichTextBox();
             this.panel10 = new System.Windows.Forms.Panel();
             this.View_BootyPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.BootyBackPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -161,12 +160,14 @@
             this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.udonariumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cCFOLIAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.編集ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.データ編集ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configCSV編集ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.その他ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.詳細ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cCFOLIAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.画像出力ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.View_DescriptionTextBox1 = new System.Windows.Forms.TextBox();
             this.tabContol.SuspendLayout();
             this.Monster_RegistrationTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LevelNumUpDown)).BeginInit();
@@ -1124,8 +1125,8 @@
             // 
             this.View_MonsterDataPanel1.AutoScroll = true;
             this.View_MonsterDataPanel1.BackColor = System.Drawing.Color.Gainsboro;
-            this.View_MonsterDataPanel1.Controls.Add(this.panel11);
             this.View_MonsterDataPanel1.Controls.Add(this.View_DescriptionTextBox1);
+            this.View_MonsterDataPanel1.Controls.Add(this.panel11);
             this.View_MonsterDataPanel1.Controls.Add(this.panel10);
             this.View_MonsterDataPanel1.Controls.Add(this.StatusListView2);
             this.View_MonsterDataPanel1.Controls.Add(this.PartPanel1);
@@ -1182,15 +1183,6 @@
             this.View_Special_AbilityLabel1.Size = new System.Drawing.Size(57, 12);
             this.View_Special_AbilityLabel1.TabIndex = 66;
             this.View_Special_AbilityLabel1.Text = "特殊能力";
-            // 
-            // View_DescriptionTextBox1
-            // 
-            this.View_DescriptionTextBox1.Location = new System.Drawing.Point(3, 406);
-            this.View_DescriptionTextBox1.Name = "View_DescriptionTextBox1";
-            this.View_DescriptionTextBox1.ReadOnly = true;
-            this.View_DescriptionTextBox1.Size = new System.Drawing.Size(408, 140);
-            this.View_DescriptionTextBox1.TabIndex = 68;
-            this.View_DescriptionTextBox1.Text = "";
             // 
             // panel10
             // 
@@ -1671,7 +1663,8 @@
             // 
             this.exportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.udonariumToolStripMenuItem,
-            this.cCFOLIAToolStripMenuItem});
+            this.cCFOLIAToolStripMenuItem,
+            this.画像出力ToolStripMenuItem});
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
             this.exportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exportToolStripMenuItem.Text = "Export";
@@ -1682,6 +1675,13 @@
             this.udonariumToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.udonariumToolStripMenuItem.Text = "Udonarium";
             this.udonariumToolStripMenuItem.Click += new System.EventHandler(this.udonariumToolStripMenuItem_Click);
+            // 
+            // cCFOLIAToolStripMenuItem
+            // 
+            this.cCFOLIAToolStripMenuItem.Name = "cCFOLIAToolStripMenuItem";
+            this.cCFOLIAToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cCFOLIAToolStripMenuItem.Text = "CCFOLIA";
+            this.cCFOLIAToolStripMenuItem.Click += new System.EventHandler(this.cCFOLIAToolStripMenuItem_Click);
             // 
             // 編集ToolStripMenuItem
             // 
@@ -1721,12 +1721,21 @@
             this.詳細ToolStripMenuItem.Text = "詳細";
             this.詳細ToolStripMenuItem.Click += new System.EventHandler(this.詳細ToolStripMenuItem_Click);
             // 
-            // cCFOLIAToolStripMenuItem
+            // 画像出力ToolStripMenuItem
             // 
-            this.cCFOLIAToolStripMenuItem.Name = "cCFOLIAToolStripMenuItem";
-            this.cCFOLIAToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cCFOLIAToolStripMenuItem.Text = "CCFOLIA";
-            this.cCFOLIAToolStripMenuItem.Click += new System.EventHandler(this.cCFOLIAToolStripMenuItem_Click);
+            this.画像出力ToolStripMenuItem.Name = "画像出力ToolStripMenuItem";
+            this.画像出力ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.画像出力ToolStripMenuItem.Text = "画像出力";
+            this.画像出力ToolStripMenuItem.Click += new System.EventHandler(this.画像出力ToolStripMenuItem_Click);
+            // 
+            // View_DescriptionTextBox1
+            // 
+            this.View_DescriptionTextBox1.Location = new System.Drawing.Point(3, 405);
+            this.View_DescriptionTextBox1.Multiline = true;
+            this.View_DescriptionTextBox1.Name = "View_DescriptionTextBox1";
+            this.View_DescriptionTextBox1.ReadOnly = true;
+            this.View_DescriptionTextBox1.Size = new System.Drawing.Size(408, 141);
+            this.View_DescriptionTextBox1.TabIndex = 70;
             // 
             // MainForm
             // 
@@ -1764,6 +1773,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.KegareNumUpDown1)).EndInit();
             this.Monster_ViewTab.ResumeLayout(false);
             this.View_MonsterDataPanel1.ResumeLayout(false);
+            this.View_MonsterDataPanel1.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.Special_AbilityBackPanel1.ResumeLayout(false);
             this.Special_AbilityBackPanel1.PerformLayout();
@@ -1915,7 +1925,6 @@
         private System.Windows.Forms.FlowLayoutPanel View_Special_AbilityPanel1;
         private System.Windows.Forms.TableLayoutPanel Special_AbilityBackPanel1;
         private System.Windows.Forms.Label View_Special_AbilityLabel1;
-        private System.Windows.Forms.RichTextBox View_DescriptionTextBox1;
         public System.Windows.Forms.TreeView MonsterTreeView1;
         private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem udonariumToolStripMenuItem;
@@ -1926,6 +1935,8 @@
         private System.Windows.Forms.ToolStripMenuItem 詳細ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cCFOLIAToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 画像出力ToolStripMenuItem;
+        private System.Windows.Forms.TextBox View_DescriptionTextBox1;
     }
 }
 

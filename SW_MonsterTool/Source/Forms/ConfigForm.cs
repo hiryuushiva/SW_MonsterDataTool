@@ -217,7 +217,7 @@ namespace SW_MonsterTool
         private void OutPutCSV_ReferenceButton1_Click(object sender, EventArgs e)
         {
             OpenFileDialog l_Dialog = new OpenFileDialog();
-            l_Dialog.Filter = "CSVファイル|*.csv|jsonファイル|*.json|テキストファイル(*.txt)|*.txt|すべてのファイル|*.*";
+            l_Dialog.Filter = "編集可能ファイル(*.json;*.csv;*.txt)|*.json;*.csv;*.txt|CSVファイル(*.csv)|*.csv|jsonファイル(*.json)|*.json|テキストファイル(*.txt)|*.txt|すべてのファイル(*.*)|*.*";
             l_Dialog.Title = "開く";
             if (l_Dialog.ShowDialog() == DialogResult.OK)
             {
@@ -229,7 +229,7 @@ namespace SW_MonsterTool
         private void MCSVList_AddButton1_Click(object sender, EventArgs e)
         {
             OpenFileDialog l_Dialog = new OpenFileDialog();
-            l_Dialog.Filter = "CSVファイル|*.csv|jsonファイル|*.json|テキストファイル(*.txt)|*.txt|すべてのファイル|*.*";
+            l_Dialog.Filter = "編集可能ファイル(*.json;*.csv;*.txt)|*.json;*.csv;*.txt|CSVファイル(*.csv)|*.csv|jsonファイル(*.json)|*.json|テキストファイル(*.txt)|*.txt|すべてのファイル(*.*)|*.*";
             l_Dialog.Title = "開く";
             if (l_Dialog.ShowDialog() == DialogResult.OK)
             {
@@ -265,8 +265,7 @@ namespace SW_MonsterTool
         private void ConfigCSV_ReferenceButton1_Click(object sender, EventArgs e)
         {
             OpenFileDialog l_Dialog = new OpenFileDialog();
-            l_Dialog.Filter = "CSVファイル|*.csv|テキストファイル(*.txt)|*.txt|すべてのファイル|*.*";
-            l_Dialog.Title = "開く";
+            l_Dialog.Filter = "編集可能ファイル(*.json;*.csv;*.txt)|*.json;*.csv;*.txt|CSVファイル(*.csv)|*.csv|jsonファイル(*.json)|*.json|テキストファイル(*.txt)|*.txt|すべてのファイル(*.*)|*.*";
             if (l_Dialog.ShowDialog() == DialogResult.OK)
             {
                 ConfigCSVTextBox1.Text = l_Dialog.FileName;

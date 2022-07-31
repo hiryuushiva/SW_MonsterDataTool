@@ -1,104 +1,88 @@
-[
+﻿[
   {
-    "Name": "モンスターネーム",
-    "Category": "機械",
+    "Name": "見本モンスター",
+    "Category": "オリジナル",
     "Reference": {
-      "Book": "ルルブ1",
-      "Page": "256"
+      "Book": "オリジナル",
+      "Page": "なし"
     },
-    "Inteligence": "適当",
-    "Perception": "暗視",
-    "Reaction": "敵対",
+    "Inteligence": "動物並み",
+    "Reaction": "腹具合による",
     "Kegare": "1",
-    "Recognition": "5",
-    "WeakPointValue": "4",
-    "PreemptiveValue": "3",
+    "Recognition": "6",
+    "Perception": "五感(聴覚)",
+    "WeakPointValue": "なし",
+    "PreemptiveValue": "8",
     "WeekPoint": {
-      "Element": "水",
-      "Damage": "6"
+      "Element": "純エネルギー属性ダメージ",
+      "Damage": "1"
     },
-    "LifeResistance": "4",
-    "SpiritResistance": "3",
+    "LifeResistance": "6",
+    "SpiritResistance": "6",
     "MoveSpeed": [
       {
         "Move": "二足",
-        "Speed": "30"
+        "Speed": "2"
       },
       {
-        "Move": "-",
-        "Speed": "-"
+        "Move": "＊",
+        "Speed": "元参照"
       }
     ],
     "Language": [
-      "蛮族語",
-      "交易共通語"
+      "妖魔語",
+      "魔法文明語",
+      "汎用蛮族語"
     ],
     "Habitat": [
-      "砂漠",
-      "さまざま"
+      "テスート砂漠",
+      "テースト森林"
     ],
     "CorePart": "なし",
     "Statuses": [
       {
-        "Part": "剣",
-        "HitPower": "5",
-        "Damage": "5",
-        "Dodge": "5",
-        "Protection": "5",
-        "HP": "6",
-        "MP": "7",
-        "SwordPiece": "0"
-      },
-      {
-        "Part": "剣2",
-        "HitPower": "5",
-        "Damage": "5",
-        "Dodge": "5",
-        "Protection": "5",
-        "HP": "6",
-        "MP": "7",
+        "Part": "攻撃部位名",
+        "HitPower": "n(n+7)",
+        "Damage": "2d+n",
+        "Dodge": "n(n+7)",
+        "Protection": "n",
+        "HP": "n",
+        "MP": "n",
         "SwordPiece": "0"
       }
     ],
     "Specal": [
       {
-        "Name": "",
-        "Declaration1": "補助",
-        "Declaration2": "-",
-        "Declaration3": "-",
-        "Effect": "ダメージ+1"
+        "Name": "テスト能力1",
+        "Declaration1": "主動作型",
+        "Declaration2": "補助動作型",
+        "Declaration3": "戦闘準備型",
+        "Effect": "この能力はテスト例です"
       },
       {
-        "Name": "",
-        "Declaration1": "補助",
-        "Declaration2": "-",
-        "Declaration3": "-",
-        "Effect": "ダメージ+1"
+        "Name": "テスト魔法",
+        "Declaration1": "主動作型",
+        "Declaration2": "",
+        "Declaration3": "",
+        "Effect": "テスト魔法レベル8/魔力7(19)"
       }
     ],
     "Booty": [
       {
-        "Dice": "１～２",
-        "Name": "ゴミ",
-        "Num": "2",
-        "Gamel": "56G",
-        "Material": "白"
-      },
-      {
-        "Dice": "１～２",
-        "Name": "2ゴミ",
-        "Num": "2",
-        "Gamel": "56G",
-        "Material": "白"
+        "Dice": "自動",
+        "Name": "パラサイト",
+        "Num": "1",
+        "Gamel": "122",
+        "Material": "赤B"
       }
     ],
-    "Description": "テスト解説",
-    "Level": "1",
+    "Description": "テスト解説です",
+    "Level": "6",
     "TotalSwordPiece": "0",
-    "Texture": "None",
+    "Texture": "",
     "ChatPalette": {
-      "DicePalette": ["テストパレット"],
-      "FixedPalette": ["テストパレット"]
+      "DicePalette": [],
+      "FixedPalette": []
     }
   }
 ]

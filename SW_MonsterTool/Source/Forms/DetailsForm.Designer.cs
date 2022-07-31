@@ -47,9 +47,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(92, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 12);
+            this.label1.Size = new System.Drawing.Size(108, 12);
             this.label1.TabIndex = 3;
-            this.label1.Text = "バージョン情報 ver1.20";
+            this.label1.Text = "バージョン情報 ver1.3";
             // 
             // linkLabel1
             // 

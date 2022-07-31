@@ -14,6 +14,7 @@ using System.IO;
 using SW_MonsterTool.Source.Utility.GoogleApi;
 using SW_MonsterTool.Source.MData;
 using SW_MonsterTool.Source.Utility.MathUtility;
+using SW_MonsterTool.Source.Forms;
 
 
 namespace SW_MonsterTool
@@ -379,8 +380,8 @@ namespace SW_MonsterTool
 
             }
 
-
-            m_OutFile.m_NowFile.Close();
+            if (m_OutFile.m_NowFile != null)
+                m_OutFile.m_NowFile.Close();
 
             m_WCenter.SetHook(this);
             MessageBox.Show(this, "出力が終わりました", "送信", MessageBoxButtons.OK);
@@ -776,16 +777,6 @@ namespace SW_MonsterTool
             l_Result.Add("レベル" + "," + l_Level + "," + "画像" + ",");
             l_Result.Add("チャットパレット" + "," + ",");
             l_Result.Add("END" + ",");
-
-            //for (int i = 0; i < l_Result.Count; i++)
-            //{
-            //    string l_RepResult = l_Result[i];
-            //    //そのままだとエラー起きる文字をちゃんと戻しておく
-            //    //文字列に含まれた"を変換しておく
-            //    l_RepResult = l_RepResult.Replace("\"", ReplacementList.m_DoubleC_R);
-
-            //    l_Result[i] = l_RepResult;
-            //}
 
             return l_Result;
         }
@@ -1410,16 +1401,16 @@ namespace SW_MonsterTool
                     l_Panel.Controls.Add(l_Declaration);
 
                     int l_Rich_y = l_Name.Height + 4 + l_Declaration.Height;
-                    RichTextBox l_Rich = new RichTextBox();
-                    l_Rich.ScrollBars = RichTextBoxScrollBars.None;
+                    TextBox l_Rich = new TextBox();
+                    l_Rich.Multiline = true;
                     l_Rich.ReadOnly = true;
                     l_Rich.Text = specal.Effect;
 
-                    int l_RichLine = (l_Rich.TextLength / 40) + 2;
-                    l_Rich.Height = (l_Rich.PreferredHeight + 5) * l_RichLine + 5;
-
                     l_Rich.SetBounds(0, l_Rich_y, l_Panel.Width, l_Rich.Height);
 
+                    int l_RichLine = l_Rich.GetLineFromCharIndex(l_Rich.TextLength) + 1;
+
+                    l_Rich.Height = l_Rich.Font.Height * l_RichLine + l_Rich.Margin.Vertical;
 
                     l_Panel.Height = l_Rich_y + l_Rich.Height;
                     l_Panel_h += l_Panel.Height + 8;
@@ -1447,7 +1438,9 @@ namespace SW_MonsterTool
 
             int l_Line = View_DescriptionTextBox1.GetLineFromCharIndex(View_DescriptionTextBox1.TextLength) + 1;
 
-            View_DescriptionTextBox1.Height = 12 * l_Line + View_DescriptionTextBox1.Margin.Vertical * l_Line;
+            View_DescriptionTextBox1.Height = View_DescriptionTextBox1.Font.Height * l_Line + View_DescriptionTextBox1.Margin.Vertical;
+
+            l_PanelSetY += View_DescriptionTextBox1.Height + 7;
 
             tabContol.Update();
         }
@@ -1924,5 +1917,31 @@ namespace SW_MonsterTool
             }
         }
 
+        private void 画像出力ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // 指定した数分子フォームを開く
+            for (int i = 0; i < m_OpenedSubForms; i++)
+            {
+                //子フォームのインスタンスを作成する
+                ImageExportForm l_ImageForm = new ImageExportForm();
+
+                // 子フォームのClosedイベントをSubFormClosed()にハンドルして開く
+                l_ImageForm.Closed += new EventHandler(this.ExSubFormClosed);
+                l_ImageForm.m_Main = this;
+                l_ImageForm.MaximizeBox = false;
+
+                m_WCenter.SetHook(this);
+
+                l_ImageForm.Show(this);
+
+            }
+
+            // 親フォーム自身を無効化しておく
+            this.Enabled = false;
+            foreach (Form form in m_ExActiveFroms)
+            {
+                form.Enabled = false;
+            }
+        }
     }
 }

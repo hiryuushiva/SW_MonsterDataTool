@@ -60,8 +60,8 @@
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -136,6 +136,12 @@
     </Compile>
     <Compile Include="Source\Forms\ChatPaletteEdit.Designer.cs">
       <DependentUpon>ChatPaletteEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Forms\ImageExportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Forms\ImageExportForm.Designer.cs">
+      <DependentUpon>ImageExportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Forms\MainForm.cs">
       <SubType>Form</SubType>
@@ -221,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\ChatPaletteEdit.resx">
       <DependentUpon>ChatPaletteEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Forms\ImageExportForm.resx">
+      <DependentUpon>ImageExportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

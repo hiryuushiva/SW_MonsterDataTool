@@ -46,7 +46,7 @@ namespace SW_MonsterTool
         private void Import_ReferenceButton1_Click(object sender, EventArgs e)
         {
             OpenFileDialog l_Dialog = new OpenFileDialog();
-            l_Dialog.Filter = "CSVファイル|*.csv|jsonファイル|*.json|テキストファイル(*.txt)|*.txt|すべてのファイル|*.*";
+            l_Dialog.Filter = "編集可能ファイル(*.json;*.csv;*.txt)|*.json;*.csv;*.txt|CSVファイル(*.csv)|*.csv|jsonファイル(*.json)|*.json|テキストファイル(*.txt)|*.txt|すべてのファイル(*.*)|*.*";
             l_Dialog.Title = "開く";
             if (l_Dialog.ShowDialog() == DialogResult.OK)
             {

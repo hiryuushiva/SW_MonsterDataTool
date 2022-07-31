@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using SW_MonsterTool.Source.MDataView;
 using SW_MonsterTool.Source.MData;
 using SW_MonsterTool.Source.Utility.FileUtility;
+using SW_MonsterTool.Source.Utility.MathUtility;
 
 namespace SW_MonsterTool
 {
@@ -63,7 +64,7 @@ namespace SW_MonsterTool
         private void button5_Click(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter = "CSVファイル|*.csv|jsonファイル|*.json|テキストファイル(*.txt)|*.txt|すべてのファイル|*.*";
+            dialog.Filter = "編集可能ファイル(*.json;*.csv;*.txt)|*.json;*.csv;*.txt|CSVファイル(*.csv)|*.csv|jsonファイル(*.json)|*.json|テキストファイル(*.txt)|*.txt|すべてのファイル(*.*)|*.*";
             dialog.Title = "開く";
             if (dialog.ShowDialog() == DialogResult.OK)
             {
@@ -116,9 +117,13 @@ namespace SW_MonsterTool
 
             if (result == DialogResult.Yes)
             {
-                OpenFileDialog dialog = new OpenFileDialog();
-                dialog.Filter = "CSVファイル|*.csv|jsonファイル|*.json|テキストファイル(*.txt)|*.txt|すべてのファイル|*.*";
-                dialog.Title = "保存";
+                SaveFileDialog dialog = new SaveFileDialog();
+                dialog.FileName = Select_DataTextBox1.Text;
+                dialog.Filter = "編集可能ファイル(*.json;*.csv;*.txt)|*.json;*.csv;*.txt|CSVファイル(*.csv)|*.csv|jsonファイル(*.json)|*.json|テキストファイル(*.txt)|*.txt|すべてのファイル(*.*)|*.*";
+                dialog.FilterIndex = 1;
+                dialog.Title = "保存先のファイルを選択してください";
+                dialog.RestoreDirectory = true;
+
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     m_EditFileURL = dialog.FileName;
@@ -145,6 +150,9 @@ namespace SW_MonsterTool
                 //編集されたデータを保存する
                 if (m_EditNum > 0)
                 {
+                    //範囲外になる場合があるとエラー落ちする対策
+                    m_SelectMonsterNumber = MathUtil.Clamp(m_SelectMonsterNumber, 0, m_DataCustomMain.m_ViewTab.m_Monsters.Count - 1);
+
                     Monster l_EditM = m_DataCustomMain.m_ViewTab.m_Monsters[m_SelectMonsterNumber];
 
                     int read = m_DataCustomMain.FormToMonster(ref l_EditM);
@@ -253,8 +261,10 @@ namespace SW_MonsterTool
                 //編集初回時だけはスルーする
                 if (m_EditNum > 0)
                 {
-                    //編集されたデータをリストに反映させる作業
+                    //範囲外になる場合があるとエラー落ちする対策
+                    m_SelectMonsterNumber = MathUtil.Clamp(m_SelectMonsterNumber, 0, m_DataCustomMain.m_ViewTab.m_Monsters.Count - 1);
 
+                    //編集されたデータをリストに反映させる作業
                     Monster m = m_DataCustomMain.m_ViewTab.m_Monsters[m_SelectMonsterNumber];
 
                     int read = m_DataCustomMain.FormToMonster(ref m);
@@ -281,8 +291,10 @@ namespace SW_MonsterTool
                 //編集初回時だけはスルーする
                 if (m_EditNum > 0)
                 {
-                    //編集されたデータをリストに反映させる作業
+                    //範囲外になる場合があるとエラー落ちする対策
+                    m_SelectMonsterNumber = MathUtil.Clamp(m_SelectMonsterNumber, 0, m_DataCustomMain.m_ViewTab.m_Monsters.Count - 1);
 
+                    //編集されたデータをリストに反映させる作業
                     Monster m = m_DataCustomMain.m_ViewTab.m_Monsters[m_SelectMonsterNumber];
 
                     int read = m_DataCustomMain.FormToMonster(ref m);
@@ -414,6 +426,9 @@ namespace SW_MonsterTool
             //編集初回時だけはスルーする
             if (m_EditNum > 0)
             {
+                //範囲外になる場合があるとエラー落ちする対策
+                m_SelectMonsterNumber = MathUtil.Clamp(m_SelectMonsterNumber, 0, m_DataCustomMain.m_ViewTab.m_Monsters.Count - 1);
+
                 //編集されたデータをリストに反映させる作業
 
                 Monster l_EditM = m_DataCustomMain.m_ViewTab.m_Monsters[m_SelectMonsterNumber];

@@ -100,7 +100,10 @@ namespace SW_MonsterTool.Source.Utility.Udonarium
             l_Character.WriteAttributeString("name", "common");
             l_Character.WriteStartElement("data");
             l_Character.WriteAttributeString("name", "name");
-            l_Character.WriteString(monster.m_Name);
+            if (export_part == "全ての部位")
+                l_Character.WriteString(monster.m_Name);
+            else
+                l_Character.WriteString(monster.m_Name+"("+ export_part+")");
             l_Character.WriteEndElement();
             l_Character.WriteStartElement("data");
             l_Character.WriteAttributeString("name", "size");
@@ -200,6 +203,22 @@ namespace SW_MonsterTool.Source.Utility.Udonarium
                     AddNode(ref l_Character, "部位HP", s.HP, ValueType.NumberResource);
                     AddNode(ref l_Character, "部位MP", s.MP, ValueType.NumberResource);
                     l_Character.WriteEndElement();
+
+                    //パレット追加
+                    l_StartIndex = s.HitPower.IndexOf('(');
+                    string l_HitPower = s.HitPower.Remove(l_StartIndex, s.HitPower.Count() - l_StartIndex);
+                    l_DicePallet.Add("2d6+" + l_HitPower + " " + monster.m_Name + " の " + s.Part + " 命中判定");
+                    l_FixedPallet.Add(MathUtil.AddStringNum(l_HitPower, "7") + " " + monster.m_Name + " の " + s.Part + " 命中判定(固定値)");
+
+                    string l_Damage = s.Damage.Replace("2d+", "");
+                    l_DicePallet.Add("2d6+" + l_Damage + " " + monster.m_Name + " の " + s.Part + " ダメージ判定");
+                    l_FixedPallet.Add(MathUtil.AddStringNum(l_Damage, "7") + " " + monster.m_Name + " の " + s.Part + " ダメージ判定(固定値)");
+
+                    l_StartIndex = s.Dodge.IndexOf('(');
+                    string l_Dodge = s.Dodge.Remove(l_StartIndex, s.Dodge.Count() - l_StartIndex);
+                    l_DicePallet.Add("2d6+" + l_Dodge + " " + monster.m_Name + " の " + s.Part + " 回避判定");
+                    l_FixedPallet.Add(MathUtil.AddStringNum(l_Dodge, "7") + " " + monster.m_Name + " の " + s.Part + " 回避判定(固定値)");
+
                 }
                 else if (export_part == s.Part)
                 {
@@ -213,22 +232,23 @@ namespace SW_MonsterTool.Source.Utility.Udonarium
                     AddNode(ref l_Character, "HP", s.HP, ValueType.NumberResource);
                     AddNode(ref l_Character, "MP", s.MP, ValueType.NumberResource);
                     l_Character.WriteEndElement();
+
+                    //パレット追加
+                    l_StartIndex = s.HitPower.IndexOf('(');
+                    string l_HitPower = s.HitPower.Remove(l_StartIndex, s.HitPower.Count() - l_StartIndex);
+                    l_DicePallet.Add("2d6+" + l_HitPower + " " + monster.m_Name + " の " + s.Part + " 命中判定");
+                    l_FixedPallet.Add(MathUtil.AddStringNum(l_HitPower, "7") + " " + monster.m_Name + " の " + s.Part + " 命中判定(固定値)");
+
+                    string l_Damage = s.Damage.Replace("2d+", "");
+                    l_DicePallet.Add("2d6+" + l_Damage + " " + monster.m_Name + " の " + s.Part + " ダメージ判定");
+                    l_FixedPallet.Add(MathUtil.AddStringNum(l_Damage, "7") + " " + monster.m_Name + " の " + s.Part + " ダメージ判定(固定値)");
+
+                    l_StartIndex = s.Dodge.IndexOf('(');
+                    string l_Dodge = s.Dodge.Remove(l_StartIndex, s.Dodge.Count() - l_StartIndex);
+                    l_DicePallet.Add("2d6+" + l_Dodge + " " + monster.m_Name + " の " + s.Part + " 回避判定");
+                    l_FixedPallet.Add(MathUtil.AddStringNum(l_Dodge, "7") + " " + monster.m_Name + " の " + s.Part + " 回避判定(固定値)");
+
                 }
-
-                //パレット追加
-                l_StartIndex = s.HitPower.IndexOf('(');
-                string l_HitPower = s.HitPower.Remove(l_StartIndex, s.HitPower.Count() - l_StartIndex);
-                l_DicePallet.Add("2d6+" + l_HitPower + " " + monster.m_Name + " の " + s.Part + " 命中判定");
-                l_FixedPallet.Add(MathUtil.AddStringNum(l_HitPower, "7") + " " + monster.m_Name + " の " + s.Part + " 命中判定(固定値)");
-
-                string l_Damage = s.Damage.Replace("2d+", "");
-                l_DicePallet.Add("2d6+" + l_Damage + " " + monster.m_Name + " の " + s.Part + " ダメージ判定");
-                l_FixedPallet.Add(MathUtil.AddStringNum(l_Damage, "7") + " " + monster.m_Name + " の " + s.Part + " ダメージ判定(固定値)");
-
-                l_StartIndex = s.Dodge.IndexOf('(');
-                string l_Dodge = s.Dodge.Remove(l_StartIndex, s.Dodge.Count() - l_StartIndex);
-                l_DicePallet.Add("2d6+" + l_Dodge + " " + monster.m_Name + " の " + s.Part + " 回避判定");
-                l_FixedPallet.Add(MathUtil.AddStringNum(l_Dodge, "7") + " " + monster.m_Name + " の " + s.Part + " 回避判定(固定値)");
             }
 
             l_Character.WriteEndElement();

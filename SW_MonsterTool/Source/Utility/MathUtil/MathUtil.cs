@@ -42,5 +42,10 @@ namespace SW_MonsterTool.Source.Utility.MathUtility
 
             return (v1 - v2).ToString();
         }
+
+        public static int Clamp(int value,int min ,int max)
+        {
+            return Math.Max(min, Math.Min(value, max));
+        }
     }
 }
